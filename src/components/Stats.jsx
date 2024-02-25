@@ -5,26 +5,33 @@ import Averagechart from '../components/AverageChart/Averagechart'
 import Radarchart from '../components/RadarChart/Radarchart'
 import Scorechart from '../components/ScoreChart/Scorechart'
 
+// Le composant fonctionnel Stats est utilisé pour afficher les statistiques de l'utilisateur.
 const Stats = () => {
+  // Extraction de l'ID de l'utilisateur depuis l'URL avec le hook useParams.
   const { id } = useParams();
-  // Récupérer les données dynamiques
+  // Utilisation du hook personnalisé useFetch pour charger les données dynamiques de l'utilisateur depuis une API.
   const { data: dynamicData, loading, error } = useFetch(`http://localhost:3000/user/${id}`);
-  console.log(dynamicData);
+
+
+  // Vérification de la présence et de la structure correcte des données clés
   if (!dynamicData || !dynamicData.data || !dynamicData.data.keyData) {
-    // Si les données sont absentes ou ne sont pas bien structurées, retourne un message ou un indicateur de chargement
     return loading ? <p>Chargement...</p> : <p>Données non disponibles ou format incorrect</p>;
   }
 
-
-
-  // Gestion du chargement et des erreurs
+  // Gère l'affichage en cas de chargement ou d'erreur
   if (loading) return <p>Chargement...</p>;
   if (error) return <p>Erreur : {error.message}</p>;
 
+
+
+
   return (
     <>
+      {/* Composant pour afficher le graphique d'activité de l'utilisateur. */}
       <Activitychart />
       <div className='statLine'>
+
+        {/* Composants pour afficher différents types de graphiques statistiques. */}
         <Averagechart />
         <Radarchart />
         <Scorechart />
