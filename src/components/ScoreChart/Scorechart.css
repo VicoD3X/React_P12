@@ -1,0 +1,33 @@
+.ScoreContain {
+    background-color: #f5f5f5;
+    width: 26%;
+    border-radius: 10px;
+    margin-left: 25px;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    position: relative;
+}
+
+.custom-legend {
+    text-align: center;
+}
+
+.legend-score {
+    font-size: 2em;
+    /* ajustez la taille comme nécessaire */
+    color: #000;
+    /* la couleur de votre choix */
+}
+
+.legend-text {
+    font-size: 1em;
+    /* ajustez la taille comme nécessaire */
+    color: #000;
+    /* la couleur de votre choix */
+}
+
+.scoreTxt {
+    position: absolute;
+    left: 15%;
+    top: 15%;
+}

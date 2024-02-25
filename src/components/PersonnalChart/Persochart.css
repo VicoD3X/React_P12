@@ -1,0 +1,75 @@
+.statPerso {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-left: -180px;
+    margin-right: 100px;
+    margin-top: 55px;
+
+}
+
+.statKey {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    background-color: #f5f5f5;
+    margin: 30px;
+    padding: 12% 9% 12% 5%;
+}
+
+.iconeKey {
+    font-size: 35px;
+    padding: 6% 5px 6% 5px;
+    width: 20%;
+    border-radius: 10px;
+    margin-left: 20px;
+}
+
+.statKey:nth-child(1) .iconeKey {
+    color: rgb(255, 0, 0);
+    background-color: #fddada;
+}
+
+.statKey:nth-child(2) .iconeKey {
+    color: #0099ff;
+    background-color: #caeaff;
+}
+
+.statKey:nth-child(3) .iconeKey {
+    color: red;
+    background-color: aqua;
+}
+
+.statKey:nth-child(4) .iconeKey {
+    color: red;
+    background-color: aqua;
+}
+
+
+.textKey {
+    display: flex;
+    flex-direction: column;
+    margin-left: 35px;
+    text-wrap: wrap;
+}
+
+.textDataKey {
+    font-family: 'roboto', sans-serif;
+    font-weight: 600;
+    font-size: 35px;
+}
+
+.textP {
+    font-weight: 500;
+    color: grey;
+}
+
+
+@media (max-width: 800px) {
+    .statPerso {
+      left: 50%; /* Ajustez selon le besoin */
+      top: 10%; /* Ajustez selon le besoin */
+      width: 30%; /* Augmente la largeur pour empêcher la compression verticale */
+    }
+  }

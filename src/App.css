@@ -1,0 +1,121 @@
+* {
+  font-family: 'roboto', sans-serif;
+  margin: 0;
+}
+
+.navContainer {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+}
+
+.navH {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  background-color: black;
+  align-items: center;
+}
+
+.logo {
+  object-fit: cover;
+  width: 12%;
+}
+
+.navTitle {
+  color: white;
+  font-size: 25px;
+  font-weight: 500;
+  margin-right: 60px;
+  text-wrap: wrap;
+}
+
+.mainContainer {
+  display: flex;
+}
+
+.navV {
+  display: flex;
+  position: relative;
+  justify-content: space-around;
+  flex-direction: column;
+  width: 9%;
+  height: 95vh;
+  top: 100%;
+  background-color: rgb(0, 0, 0);
+}
+
+.iconContain {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+}
+
+.iconeWeb {
+  color: rgb(255, 0, 0);
+  background-color: white;
+  font-size: 35px;
+  padding: 12% 10% 12% 10%;
+  width: 25%;
+  margin-top: 25px;
+  border-radius: 15%;
+}
+
+.copyright {
+  top: 80%;
+  display: flex;
+  transform: rotate(-90deg);
+  color: rgb(255, 255, 255);
+  width: 100%;
+  text-wrap: nowrap;
+}
+
+
+
+
+/* WEBSITE DATA SETTINGS  */
+
+
+
+.superStatsContainer {
+  display: flex;
+  flex-direction: row-reverse;
+  width: 100%;
+}
+
+.statsContainer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-left: 100px;
+  margin-top: 60px;
+}
+
+.helloText {
+  margin-left: 45px;
+  color: black;
+  font-weight: 500;
+  font-size: 50px;
+}
+
+.texteRouge {
+  color: red;
+}
+
+.helloText2 {
+  margin-left: 45px;
+  font-weight: 400;
+  margin-bottom: 80px;
+  margin-top: 30px;
+}
+
+.statLine {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+

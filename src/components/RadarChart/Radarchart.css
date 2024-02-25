@@ -1,0 +1,8 @@
+.RadarContain {
+    display: flex;
+    background-color: rgb(33, 33, 33);
+    width: 26%;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    border-radius: 10px;
+}
