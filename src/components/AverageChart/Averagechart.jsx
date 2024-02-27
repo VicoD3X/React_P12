@@ -1,8 +1,7 @@
 import React from 'react';
 import { LineChart, Line, XAxis, YAxis, Tooltip, Rectangle, CartesianGrid, ResponsiveContainer } from 'recharts';
-import { useParams } from 'react-router-dom';
-import useFetch from '../Hook';
 import '../AverageChart/Averagechart.css';
+import { getDataForAverageChart } from '../../utils/model';
 
 // Composant personnalisé pour l'affichage de l'infobulle avec un fond sombre
 const CustomTooltip = ({ active, payload, label }) => {
@@ -19,22 +18,17 @@ const CustomTooltip = ({ active, payload, label }) => {
 };
 
 const Stats = () => {
-    const { id } = useParams(); // Récupère l'ID de l'utilisateur depuis l'URL
-    const { data: dynamicData, loading, error } = useFetch(`http://localhost:3000/user/${id}/average-sessions`);
+    const { loading, error, data } = getDataForAverageChart()
+
 
     if (loading) {
         return <p>Chargement...</p>;
     }
 
-    if (error || !dynamicData || !dynamicData.data || !dynamicData.data.sessions) {
+    if (error) {
         return <p>Données non disponibles ou format incorrect</p>;
     }
-    const dayOfWeekMap = ['L', 'M', 'M', 'J', 'V', 'S', 'D',]; // Map pour convertir les jours en abréviations
 
-    const data = dynamicData.data.sessions.map((session) => ({
-        ...session,
-        day: dayOfWeekMap[(session.day - 1) % 7], // Convertit le numéro du jour en abréviation
-    }));
 
     // Composant personnalisé pour le curseur du graphique
     const CustomCursorArea = ({ points }) => {
@@ -42,11 +36,11 @@ const Stats = () => {
     };
 
     return (
-        <div className='AverageContain'> 
-            <div className="chartverage-header"> 
-                <h2 className='chartverage-title'>Durée moyenne des sessions</h2> 
+        <div className='AverageContain'>
+            <div className="chartverage-header">
+                <h2 className='chartverage-title'>Durée moyenne des sessions</h2>
             </div>
-            <ResponsiveContainer width="100%" height={350} > 
+            <ResponsiveContainer width="100%" height={350} >
                 <LineChart
                     data={data}                                                // Données du graphique
                     margin={{ top: 80, right: 10, left: 10, bottom: 20 }}      // Marges autour du graphique
