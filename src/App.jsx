@@ -10,6 +10,7 @@ function App() {
       {/* card */}
       <Router>
         <Routes>
+        {/* Définit une route vers le tableau de bord avec un paramètre d'ID dynamique */}
           <Route path="/dashboard/:id" element={<Dashboard />} />
         </Routes>
       </Router>

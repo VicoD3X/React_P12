@@ -3,6 +3,8 @@ import { BarChart, Bar, XAxis, Tooltip, YAxis, CartesianGrid, Legend, Responsive
 import { useParams } from 'react-router-dom';
 import useFetch from '../Hook';
 import '../ActivityChart/ActivityChart.css';
+import '../../utils/model'
+import getDataForActivityChart from '../../utils/model';
 
 // Composant personnalisé pour l'affichage de l'infobulle
 const CustomTooltip = ({ active, payload }) => {
@@ -29,26 +31,27 @@ const CustomTooltip = ({ active, payload }) => {
 };
 
 const Stats = () => {
-    // Utilise le hook useParams pour extraire l'ID de l'utilisateur depuis l'URL.
-    const { id } = useParams();
-    // Utilise un hook personnalisé pour charger les données d'activité de l'utilisateur depuis une API.
-    const { data: dynamicData, loading, error } = useFetch(`http://localhost:3000/user/${id}/activity`);
+    const {loading, error, dataForChart} = getDataForActivityChart()
+    // // Utilise le hook useParams pour extraire l'ID de l'utilisateur depuis l'URL.
+    // const { id } = useParams();
+    // // Utilise un hook personnalisé pour charger les données d'activité de l'utilisateur depuis une API.
+    // const { data: dynamicData, loading, error } = useFetch(`http://localhost:3000/user/${id}/activity`);
 
     if (loading) {
         return <p>Chargement...</p>;
     }
 
     // Affichage conditionnel en cas d'erreur ou si les données ne sont pas disponibles dans le format attendu.
-    if (error || !dynamicData || !dynamicData.data || !dynamicData.data.sessions) {
+    if (error) {
         return <p>Données non disponibles ou format incorrect</p>;
     }
 
-    // Transformation des données de session en un format adapté au graphique.
-    const dataForChart = dynamicData.data.sessions.map((session, index) => ({
-        name: `Jour ${index + 1}`,  // Nom de chaque barre sur l'axe X.
-        kg: session.kilogram, // Données pour le poids.
-        Kcal: session.calories // Données pour les calories brûlées.
-    }));
+    // // Transformation des données de session en un format adapté au graphique.
+    // const dataForChart = dynamicData.data.sessions.map((session, index) => ({
+    //     name: `Jour ${index + 1}`,  // Nom de chaque barre sur l'axe X.
+    //     kg: session.kilogram, // Données pour le poids.
+    //     Kcal: session.calories // Données pour les calories brûlées.
+    // }));
 
     // Rendu du graphique et de ses composants.
     return (
