@@ -1,7 +1,7 @@
 import React from 'react';
 import { LineChart, Line, XAxis, YAxis, Tooltip, Rectangle, CartesianGrid, ResponsiveContainer } from 'recharts';
 import '../AverageChart/Averagechart.css';
-import { getDataForAverageChart } from '../../utils/model';
+import { getDataForAverageChart } from '../../utils/AverageModel';
 
 // Composant personnalisé pour l'affichage de l'infobulle avec un fond sombre
 const CustomTooltip = ({ active, payload, label }) => {

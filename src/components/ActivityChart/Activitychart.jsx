@@ -1,8 +1,8 @@
 import React from 'react';
 import { BarChart, Bar, XAxis, Tooltip, YAxis, CartesianGrid, Legend, ResponsiveContainer, ReferenceLine } from 'recharts';
 import '../ActivityChart/ActivityChart.css';
-import '../../utils/model'
-import { getDataForActivityChart } from '../../utils/model';
+import '../../utils/ActivityModel'
+import { getDataForActivityChart } from '../../utils/ActivityModel';
 
 // Composant personnalisé pour l'affichage de l'infobulle
 const CustomTooltip = ({ active, payload }) => {
