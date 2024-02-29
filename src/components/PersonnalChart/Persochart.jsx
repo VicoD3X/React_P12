@@ -3,6 +3,7 @@ import Icone from '../Icone';
 import { useParams } from 'react-router-dom';
 import useFetch from '../Hook';
 import '../PersonnalChart/Persochart.css';
+// import jsonData from '../../../public/dataPerso.json'
 
 const Stats = () => {
     const { id } = useParams(); // Récupère l'identifiant de l'utilisateur depuis l'URL.
