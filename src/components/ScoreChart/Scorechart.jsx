@@ -1,41 +1,23 @@
-import { useParams } from 'react-router-dom';
-import useFetch from '../Hook';
+import { getDataForScoreChart } from '../../utils/ScoreModel';
 import '../ScoreChart/Scorechart.css';
 import { RadialBarChart, RadialBar, ResponsiveContainer, Legend, PolarAngleAxis } from 'recharts';
 
 const Stats = () => {
-    const { id } = useParams();
-    // Utilisation du hook useFetch pour charger les données de l'utilisateur depuis une API.
-    const { data: dynamicData, loading, error } = useFetch(`http://localhost:3000/user/${id}/`);
+    const { loading, error, radialData, score } = getDataForScoreChart();
 
-    // Affichage d'un message de chargement pendant la récupération des données.
     if (loading) {
         return <p>Chargement...</p>;
     }
 
-    // Calcul du score de l'utilisateur, en gérant la possibilité de champs de données différents.
-    const score = dynamicData.data && (dynamicData.data.todayScore !== undefined ? dynamicData.data.todayScore : dynamicData.data.score);
-
-    // Affichage d'un message d'erreur si une erreur survient ou si les données ne sont pas dans le format attendu.
-    if (error || !dynamicData || !dynamicData.data || score === undefined) {
+    if (error) {
         return <p>Données non disponibles ou format incorrect</p>;
     }
 
-    // Préparation des données pour le graphique radial, en convertissant le score en pourcentage.
-    const radialData = [{
-        name: 'Score',
-        score: score * 100,
-        fill: '#E60000',
-    }];
-
     // Fonction personnalisée pour afficher la légende du graphique.
     const renderLegend = (props) => {
-        // Extraction de payload depuis les props. 'payload' contient les données passées à la légende.
-        const { payload } = props;
         return (
             <div className="custom-legend">
-                <p className="legend-score">{payload[0].payload.score}%</p>
-                {/* accède à la valeur de 'score' dans le premier élément du tableau 'payload'. */}
+                <p className="legend-score">{score}%</p>
                 <p className="legend-text">de votre objectif</p>
             </div>
         );
