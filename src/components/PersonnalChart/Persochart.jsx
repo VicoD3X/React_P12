@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import Icone from '../Icone';
 import { useParams } from 'react-router-dom';
 import useFetch from '../Hook';
 import '../PersonnalChart/Persochart.css';
+import Icone from '../../components/Icone'
 // import jsonData from '../../../public/dataPerso.json'
 
 const Stats = () => {
@@ -39,7 +39,7 @@ const Stats = () => {
             <div className='statPerso'>
                 {/* Affichage des calories avec une icône et les données. */}
                 <div className='statKey'>
-                    <Icone iconName="fire-flame-curved" className='iconeKey' />
+                {/* <img src={meditationIcon} alt="Flamme incurvée" className="iconeKey" /> */}
                     <div className='textKey'>
                         <p className='textDataKey'>{calorieCount}Kcal</p>
                         <p className='textP'>Calories</p>
