@@ -1,37 +1,19 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
-import useFetch from '../Hook';
 import '../PersonnalChart/Persochart.css';
 import Icone from '../../components/Icone'
-// import jsonData from '../../../public/dataPerso.json'
+import { getDataForPersoChart } from '../../utils/PersonalModel';
+
 
 const Stats = () => {
-    const { id } = useParams(); // Récupère l'identifiant de l'utilisateur depuis l'URL.
+    const { loading, error, dynamicData } = getDataForPersoChart()
 
-    // Déclaration des états pour stocker les counts nutritionnels.
-    const [calorieCount, setCalorieCount] = useState('');
-    const [proteinCount, setProteinCount] = useState('');
-    const [carbohydrateCount, setCarbohydrateCount] = useState('');
-    const [lipidCount, setLipidCount] = useState('');
-
-    // Appel de l'API pour récupérer les données de l'utilisateur.
-    const { data: userData, loading, error } = useFetch(`http://localhost:3000/user/${id}`);
-
-    // Mise à jour des états avec les données récupérées dès qu'elles sont disponibles.
-    useEffect(() => {
-        if (userData && userData.data && userData.data.keyData) {
-            const { keyData } = userData.data;
-            // Mise à jour des états avec les nouvelles valeurs
-            if (keyData.calorieCount) setCalorieCount(keyData.calorieCount);                // Mise à jour des calories
-            if (keyData.proteinCount) setProteinCount(keyData.proteinCount);                // Mise à jour des protéines
-            if (keyData.carbohydrateCount) setCarbohydrateCount(keyData.carbohydrateCount); // Mise à jour des glucides
-            if (keyData.lipidCount) setLipidCount(keyData.lipidCount);                      // Mise à jour des lipides
-        }
-    }, [userData]); // Se déclenche lorsque userData est mis à jour
-
-    // Gestion de l'affichage en cas de chargement ou d'erreur.
     if (loading) return <p>Chargement...</p>;
     if (error) return <p>Une erreur s'est produite</p>;
+
+    let calorieCount = dynamicData.keyData.calorieCount
+    let proteinCount = dynamicData.keyData.proteinCount
+    let carbohydrateCount = dynamicData.keyData.carbohydrateCount
+    let lipidCount = dynamicData.keyData.lipidCount
 
     // Affichage des statistiques nutritionnelles.
     return (
