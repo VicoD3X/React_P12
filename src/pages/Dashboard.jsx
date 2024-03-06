@@ -48,10 +48,10 @@ function Dashboard() {
                 <div className="navV">
                     <div className='iconContain'>
                         {/* Icônes représentant différentes activités */}
-                        <img src={yoga} alt="yoga"/>
-                        <img src={swim} alt="swim"/>
-                        <img src={bike} alt="bike"/>
-                        <img src={alter} alt="alter"/>
+                        <img src={yoga} alt="yoga" className='iconeWeb'/>
+                        <img src={swim} alt="swim" className='iconeWeb'/>
+                        <img src={bike} alt="bike" className='iconeWeb'/>
+                        <img src={alter} alt="alter" className='iconeWeb'/>
                     </div>
                     <div className='copyright'>Copiryght, SportSee 2020</div>
                 </div>

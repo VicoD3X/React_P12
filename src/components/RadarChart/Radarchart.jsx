@@ -23,6 +23,12 @@ const Stats = () => {
                     cy="50%" // Centre le graphique sur l'axe Y.
                     outerRadius="80%" // Rayon externe du graphique radar.
                     data={radarData} // Données du graphique.
+                    margin={{
+                        top: 0,
+                        right: 60,
+                        bottom: 0,
+                        left: 58,
+                    }}
                 >
                     <PolarGrid stroke="#FFFFFF" />
                     <PolarAngleAxis
