@@ -11,7 +11,7 @@ export function getDataForScoreChart() {
     if (USEAPI) {
         ({ data: dynamicData, loading, error } = useFetch(`http://localhost:3000/user/${id}/`));
     } else {
-        const userScoring = dataScore.USER_MAIN_DATA.find(user => user.userId.toString() === id);
+        const userScoring = dataScore.USER_MAIN_DATA.find(user => user.id.toString() === id);
         if (!userScoring || (userScoring.score === undefined && userScoring.todayScore === undefined)) {
             return { error: true };
         }

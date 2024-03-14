@@ -1,6 +1,4 @@
-import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
-import useFetch from '../components/Hook';
+import { getDataForPersoChart } from '../utils/PersonalModel';
 import '../App.css';
 import logo from '../pics/logo.png';
 import Stats from '../components/Stats';
@@ -12,24 +10,13 @@ import alter from '../pics/weight.svg'
 
 // Le composant Dashboard, utilisé pour afficher le tableau de bord de l'utilisateur.
 function Dashboard() {
-    // Récupère le paramètre 'id' depuis l'URL à l'aide du hook useParams.
-    const { id } = useParams();
-    // Déclare un état local pour stocker le prénom de l'utilisateur.
-    const [firstName, setFirstName] = useState('');
+    const { loading, error, dynamicData } = getDataForPersoChart()
 
-    // Utilise le hook personnalisé useFetch pour charger les données de l'utilisateur depuis une API.
-    const { data: userData, loading, error } = useFetch(`http://localhost:3000/user/${id}`);
-
-    // useEffect se déclenche après chaque rendu et met à jour le prénom avec les données reçues de l'API.
-    useEffect(() => {
-        if (userData && userData.data && userData.data.userInfos && userData.data.userInfos.firstName) {
-            setFirstName(userData.data.userInfos.firstName);
-        }
-    }, [userData]); // Se déclenche à chaque changement de userData.
-
-    // Affiche un message d'erreur si une erreur survient lors du chargement des données.
     if (loading) return <p>Chargement...</p>;
     if (error) return <p>Une erreur s'est produite</p>;
+
+    let firstName = dynamicData.userInfos.firstName
+
     return (
         <>
             {/* Barre de navigation horizontale */}

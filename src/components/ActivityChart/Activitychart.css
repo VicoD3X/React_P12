@@ -10,6 +10,15 @@
     font-family: 'roboto', sans-serif;
 }
 
+@media (min-width: 1450px) {
+    .ActivityContain {
+      margin: 0;
+      margin-left: 20px;
+      padding: 10px;
+      padding-right: 50px;
+    }
+  }
+
 .chart-header {
     display: flex;
     justify-content: space-between;

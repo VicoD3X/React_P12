@@ -4,8 +4,16 @@
     justify-content: space-around;
     flex-wrap: wrap;
     margin-top: 15px;
-
 }
+
+@media (min-width: 1450px) {
+    .statPerso {
+      flex-wrap: nowrap;
+      flex-direction: column;
+      margin-top: 90px;
+      height: 89%;
+    }
+  }
 
 .statKey {
     display: flex;
@@ -16,6 +24,13 @@
     padding: 3% 3% 3% 3%;
     border-radius: 10px;
 }
+
+@media (min-width: 1450px) {
+    .statKey {
+      width: 100%;
+      padding: 12% 9% 12% 5%;
+    }
+  }
 
 .iconeKey {
     font-size: 30px;
