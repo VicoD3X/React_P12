@@ -2,7 +2,7 @@ import useFetch from "../components/Hook";
 import { useParams } from 'react-router-dom';
 import dataRadar from '../../public/dataRadar.json';
 
-const USEAPI = true; // Ajustez cette valeur selon si vous souhaitez utiliser l'API ou les données locales
+const USEAPI = false; // Ajustez cette valeur selon si vous souhaitez utiliser l'API ou les données locales
 
 export function getDataForRadarChart() {
     const { id } = useParams();

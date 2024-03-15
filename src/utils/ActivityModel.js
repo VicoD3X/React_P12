@@ -3,7 +3,7 @@ import useFetch from "../components/Hook";
 import { useParams } from 'react-router-dom';
 import dataActivity from '../../public/dataActivity.json';
 
-const USEAPI = true;
+const USEAPI = false;
 
 
 

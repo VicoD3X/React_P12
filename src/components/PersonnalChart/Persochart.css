@@ -10,8 +10,10 @@
     .statPerso {
       flex-wrap: nowrap;
       flex-direction: column;
-      margin-top: 90px;
+      margin-top: 80px;
       height: 89%;
+      width: 20%;
+      justify-content: flex-start;
     }
   }
 
@@ -29,6 +31,7 @@
     .statKey {
       width: 100%;
       padding: 12% 9% 12% 5%;
+      margin-top: 60px;
     }
   }
 

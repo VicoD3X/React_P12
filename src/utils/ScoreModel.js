@@ -2,7 +2,7 @@ import useFetch from "../components/Hook";
 import { useParams } from 'react-router-dom';
 import dataScore from '../../public/dataPerso.json';
 
-const USEAPI = true; // Ajustez cette valeur selon si vous souhaitez utiliser l'API ou les données locales
+const USEAPI = false; // Ajustez cette valeur selon si vous souhaitez utiliser l'API ou les données locales
 
 export function getDataForScoreChart() {
     const { id } = useParams();
