@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import useFetch from '../components/Hook'; // Assurez-vous que le chemin d'accès est correct
 import dataPerso from '../../public/dataPerso.json'; // Assurez-vous que le chemin d'accès est correct
 
-const USEAPI = false; // Basculer entre l'utilisation des données de l'API ou locales
+const USEAPI = true; // Basculer entre l'utilisation des données de l'API ou locales
 
 export function getDataForPersoChart() {
     const { id } = useParams();

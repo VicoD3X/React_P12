@@ -29,11 +29,15 @@ const Stats = () => {
                         bottom: 0,
                         left: 58,
                     }}
+                    innerRadius={10}
                 >
                     <PolarGrid stroke="#FFFFFF" />
                     <PolarAngleAxis
                         dataKey="subject" // Axe des angles basé sur les sujets (disciplines).
                         stroke="#FFFFFF" // Couleur de l'axe des angles.
+                        tickLine={false}
+                        axisLine={false}
+                        dy={2.5}
                     />
                     <Radar
                         name="Performance" // Nom de la série de données.

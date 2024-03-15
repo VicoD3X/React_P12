@@ -2,7 +2,7 @@ import useFetch from "../components/Hook";
 import { useParams } from 'react-router-dom';
 import dataAverage from '../../public/dataAverage.json';
 
-const USEAPI = false;
+const USEAPI = true;
 
 
 export function getDataForAverageChart() {

@@ -33,15 +33,15 @@ const Stats = () => {
                 <RadialBarChart
                     cx="50%"                      // Centre le graphique sur l'axe X à 50% du conteneur.
                     cy="50%"                      // Centre le graphique sur l'axe Y à 50% du conteneur.
-                    innerRadius="70%"             // Rayon intérieur du graphique à 70% du rayon total.
-                    outerRadius="80%"             // Rayon extérieur du graphique à 80% du rayon total.
-                    barSize={10}                  // La largeur de la barre du graphique.
+                    innerRadius="68.5%"             // Rayon intérieur du graphique à 70% du rayon total.
+                    outerRadius="85%"             // Rayon extérieur du graphique à 80% du rayon total.
+                     barSize={15}                  // La largeur de la barre du graphique.
                     data={radialData}             // Les données passées au graphique.
                     startAngle={90}               // Angle de départ du graphique.
                     endAngle={500}                // Angle de fin du graphique.
                     style={{
                         backgroundColor: '#FFFFFF',               // Couleur de fond du graphique.
-                        clipPath: 'circle(105px at 50% 50%)'      // Applique un masque circulaire au graphique.
+                        clipPath: 'circle(100px at 50% 50%)'      // Applique un masque circulaire au graphique.
                     }}
                 >
                     {/* // Axe polaire pour le graphique */}
