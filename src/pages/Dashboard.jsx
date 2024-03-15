@@ -8,14 +8,21 @@ import swim from '../pics/swimming.svg'
 import bike from '../pics/cycling.svg'
 import alter from '../pics/weight.svg'
 
-// Le composant Dashboard, utilisé pour afficher le tableau de bord de l'utilisateur.
+
 function Dashboard() {
-    const { loading, error, dynamicData } = getDataForPersoChart()
 
-    if (loading) return <p>Chargement...</p>;
-    if (error) return <p>Une erreur s'est produite</p>;
+// Récupère les états de chargement et d'erreur, et les données 
+const { loading, error, dynamicData } = getDataForPersoChart();
 
-    let firstName = dynamicData.userInfos.firstName
+// Affiche un message pendant le chargement des données
+if (loading) return <p>Chargement...</p>;
+
+// Affiche un message en cas d'erreur de récupération des données
+if (error) return <p>Erreur</p>;
+
+// Extrait le prénom de l'utilisateur des données dynamiques pour une utilisation ultérieure
+let firstName = dynamicData.userInfos.firstName;
+
 
     return (
         <>

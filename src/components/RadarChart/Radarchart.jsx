@@ -1,18 +1,22 @@
-import {getDataForRadarChart} from '../../utils/RadarModel'
+import { getDataForRadarChart } from '../../utils/RadarModel'
 import { Radar, RadarChart, PolarGrid, PolarAngleAxis, ResponsiveContainer } from 'recharts';
 import '../RadarChart/Radarchart.css';
 
 const Stats = () => {
-    const { loading, error, radarData } = getDataForRadarChart()
 
+    // Récupère les états de chargement, d'erreur et les données formatées pour le graphique radar
+    const { loading, error, radarData } = getDataForRadarChart();
+
+    // Si les données sont encore en cours de chargement, affiche un message d'attente
     if (loading) {
         return <p>Chargement...</p>;
     }
 
-    // Affiche un message d'erreur si une erreur survient ou si les données ne sont pas disponibles.
+    // Affiche un message d'erreur si un problème survient lors de la récupération des données
     if (error) {
         return <p>Données non disponibles ou format incorrect</p>;
     }
+
 
     return (
         <div className='RadarContain'>

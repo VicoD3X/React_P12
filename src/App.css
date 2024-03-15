@@ -87,6 +87,7 @@
 @media (min-width: 1450px) {
   .superStatsContainer {
     flex-direction: row-reverse;
+    margin-left: 45px;
   }
 }
 
@@ -110,6 +111,12 @@
   font-size: 50px;
 }
 
+@media (min-width: 1450px) {
+  .helloText {
+    margin-top: 20px;
+  }
+}
+
 .texteRouge {
   color: red;
 }
@@ -119,6 +126,12 @@
   font-weight: 400;
   margin-bottom: 25px;
   margin-top: 10px;
+}
+
+@media (min-width: 1450px) {
+  .helloText2 {
+    margin-top: 15px;
+  }
 }
 
 .statLine {

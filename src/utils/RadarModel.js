@@ -2,42 +2,57 @@ import useFetch from "../components/Hook";
 import { useParams } from 'react-router-dom';
 import dataRadar from '../../public/dataRadar.json';
 
-const USEAPI = true; // Ajustez cette valeur selon si vous souhaitez utiliser l'API ou les données locales
+// Définir si on souhaite utiliser l'API ou les données locales
+const USEAPI = true;
 
+// Fonction pour récupérer les données pour le graphique radar
 export function getDataForRadarChart() {
+
+    // Récupère l'ID de l'utilisateur à partir de l'URL
     const { id } = useParams();
-    let dynamicData, loading, error; // Déclaration au niveau supérieur de la fonction
+
+    // Initialise les variables pour les données dynamiques, l'état de chargement, et l'état d'erreur
+    let dynamicData, loading, error;
 
     if (USEAPI) {
-        // Appel API avec useFetch, récupère les données de performance basées sur l'id utilisateur
+
+        // Si USEAPI est vrai, on fait un appel API pour obtenir les données de performance de l'utilisateur
         ({ data: dynamicData, loading, error } = useFetch(`http://localhost:3000/user/${id}/performance`));
     } else {
-        // Recherche dans les données locales pour trouver les performances de l'utilisateur
+
+        // Sinon, recherche des données de performance dans un ensemble de données local
         const userPerfo = dataRadar.USER_PERFORMANCE.find(user => user.userId.toString() === id);
+
+        // Gestion d'erreur si aucune donnée de performance n'est trouvée
         if (!userPerfo || !userPerfo.data) {
-            return { error: true }; // Retourne une erreur si aucune donnée de performance n'est trouvée
+            return { error: true };
         }
-        dynamicData = { data: userPerfo }; // Préparation des données pour le traitement
-        loading = false; // Indique que le chargement est terminé puisque nous utilisons des données locales
-        error = false; // Aucune erreur n'est présente
+        
+        // Préparation des données pour l'affichage et indication que le chargement est fini et sans erreur
+        dynamicData = { data: userPerfo };
+        loading = false;
+        error = false;
     }
 
-    // Vérification du chargement ou des erreurs avant de poursuivre
-    if (loading) { 
+    // Retourne l'état de chargement si les données sont encore en cours de chargement
+    if (loading) {
         return { loading };
     }
 
+    // Gestion d'erreur si une erreur survient ou si les données sont invalides ou incomplètes
     if (error || !dynamicData || !dynamicData.data || !dynamicData.data.data) {
         return { error: true };
     }
 
-    // Traitement des données pour le format attendu par le radar chart
+    // Préparation et structuration des données pour le graphique radar
     const { kind, data } = dynamicData.data;
     const radarData = data.map(perf => ({
-        subject: kind[perf.kind.toString()], // Convertit les identifiants de 'kind' en noms de disciplines
-        A: perf.value, // Valeur de performance pour chaque discipline
-        fullMark: 200 // La valeur maximale pour le graphique radar
+        subject: kind[perf.kind.toString()], // Conversion des identifiants de catégorie en noms lisibles
+        A: perf.value, // Valeur de performance
+        fullMark: 200 // Valeur maximale sur le graphique pour référence
     }));
 
+    // Retour des données prêtes pour le graphique radar, incluant les états de chargement et d'erreur
     return { loading, error, radarData };
 }
+

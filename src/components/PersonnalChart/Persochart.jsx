@@ -8,15 +8,22 @@ import lipid_icon from '../../pics/fat_icon.svg'
 
 
 const Stats = () => {
-    const { loading, error, dynamicData } = getDataForPersoChart()
+    
+    // Récupère les états de chargement, d'erreur et les données personnalisées 
+    const { loading, error, dynamicData } = getDataForPersoChart();
 
+    // Affiche un message de chargement si les données sont encore en cours de récupération
     if (loading) return <p>Chargement...</p>;
+
+    // Affiche un message d'erreur si un problème est survenu lors de la récupération des données
     if (error) return <p>Une erreur s'est produite</p>;
 
-    let calorieCount = dynamicData.keyData.calorieCount
-    let proteinCount = dynamicData.keyData.proteinCount
-    let carbohydrateCount = dynamicData.keyData.carbohydrateCount
-    let lipidCount = dynamicData.keyData.lipidCount
+    // Extractions des différents compteurs de nutriments depuis les données récupérées
+    let calorieCount = dynamicData.keyData.calorieCount; // Nombre de calories
+    let proteinCount = dynamicData.keyData.proteinCount; // Quantité de protéines
+    let carbohydrateCount = dynamicData.keyData.carbohydrateCount; // Quantité de glucides
+    let lipidCount = dynamicData.keyData.lipidCount; // Quantité de lipides
+
 
     // Affichage des statistiques nutritionnelles.
     return (
@@ -24,7 +31,7 @@ const Stats = () => {
             <div className='statPerso'>
                 {/* Affichage des calories avec une icône et les données. */}
                 <div className='statKey'>
-                <img src={calories_icon} alt="calories_icon" />
+                    <img src={calories_icon} alt="calories_icon" />
                     <div className='textKey'>
                         <p className='textDataKey'>{calorieCount}Kcal</p>
                         <p className='textP'>Calories</p>
@@ -33,7 +40,7 @@ const Stats = () => {
 
                 {/* Affichage des protéines avec une icône et les données. */}
                 <div className='statKey'>
-                <img src={protein_icon} alt="protein_icon" />
+                    <img src={protein_icon} alt="protein_icon" />
                     <div className='textKey'>
                         <p className='textDataKey'>{proteinCount}g</p>
                         <p className='textP'>Proteines</p>
@@ -42,7 +49,7 @@ const Stats = () => {
 
                 {/* Affichage des glucides avec une icône et les données. */}
                 <div className='statKey'>
-                <img src={carbs_icon} alt="carbs_icon" />
+                    <img src={carbs_icon} alt="carbs_icon" />
                     <div className='textKey'>
                         <p className='textDataKey'>{carbohydrateCount}g</p>
                         <p className='textP'>Glucides</p>
@@ -51,7 +58,7 @@ const Stats = () => {
 
                 {/* Affichage des lipides avec une icône et les données. */}
                 <div className='statKey'>
-                <img src={lipid_icon} alt="lipid_icon" />
+                    <img src={lipid_icon} alt="lipid_icon" />
                     <div className='textKey'>
                         <p className='textDataKey'>{lipidCount}g</p>
                         <p className='textP'>Lipides</p>

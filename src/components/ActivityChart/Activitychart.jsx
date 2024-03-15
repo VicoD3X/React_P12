@@ -29,13 +29,16 @@ const CustomTooltip = ({ active, payload }) => {
 };
 
 const Stats = () => {
-    const { loading, error, dataForChart } = getDataForActivityChart()
+    
+    // Récupère les états et les données du graphique d'activité
+    const { loading, error, dataForChart } = getDataForActivityChart();
 
+    // Si les données sont encore en cours de chargement, affiche un message de chargement
     if (loading) {
         return <p>Chargement...</p>;
     }
 
-    // Affichage conditionnel en cas d'erreur ou si les données ne sont pas disponibles dans le format attendu.
+    // Si une erreur est survenue ou si les données ne sont pas dans le format attendu, affiche un message d'erreur
     if (error) {
         return <p>Données non disponibles ou format incorrect</p>;
     }

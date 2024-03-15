@@ -3,15 +3,20 @@ import '../ScoreChart/Scorechart.css';
 import { RadialBarChart, RadialBar, ResponsiveContainer, Legend, PolarAngleAxis } from 'recharts';
 
 const Stats = () => {
+    
+    // Récupération des états de chargement et d'erreur, ainsi que des données pour le graphique de score
     const { loading, error, radialData, score } = getDataForScoreChart();
 
+    // Affichage d'un message de chargement pendant la récupération des données
     if (loading) {
         return <p>Chargement...</p>;
     }
 
+    // Affichage d'un message d'erreur en cas de problème de récupération des données
     if (error) {
-        return <p>Données non disponibles ou format incorrect</p>;
+        return <p>Erreur de données</p>;
     }
+
 
     // Fonction personnalisée pour afficher la légende du graphique.
     const renderLegend = (props) => {
@@ -35,7 +40,7 @@ const Stats = () => {
                     cy="50%"                      // Centre le graphique sur l'axe Y à 50% du conteneur.
                     innerRadius="68.5%"             // Rayon intérieur du graphique à 70% du rayon total.
                     outerRadius="85%"             // Rayon extérieur du graphique à 80% du rayon total.
-                     barSize={15}                  // La largeur de la barre du graphique.
+                    barSize={15}                  // La largeur de la barre du graphique.
                     data={radialData}             // Les données passées au graphique.
                     startAngle={90}               // Angle de départ du graphique.
                     endAngle={500}                // Angle de fin du graphique.

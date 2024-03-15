@@ -18,16 +18,20 @@ const CustomTooltip = ({ active, payload, label }) => {
 };
 
 const Stats = () => {
-    const { loading, error, data } = getDataForAverageChart()
 
+// Récupère les états de chargement, d'erreur et les données pour le graphique de la durée moyenne des sessions
+const { loading, error, data } = getDataForAverageChart();
 
-    if (loading) {
-        return <p>Chargement...</p>;
-    }
+// Affiche un message de chargement si les données sont encore en cours de récupération
+if (loading) {
+    return <p>Chargement...</p>;
+}
 
-    if (error) {
-        return <p>Données non disponibles ou format incorrect</p>;
-    }
+// En cas d'erreur ou si les données ne sont pas disponibles dans le format attendu, affiche un message d'erreur
+if (error) {
+    return <p>Données non disponibles ou format incorrect</p>;
+}
+
 
 
     // Composant personnalisé pour le curseur du graphique
