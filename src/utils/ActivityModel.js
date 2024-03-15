@@ -5,7 +5,7 @@ import dataActivity from '../../public/dataActivity.json';
 
 
 // Constante pour déterminer si l'API doit être utilisée ou non
-const USEAPI = true;
+const USEAPI = false;
 
 // Fonction pour récupérer les données destinées au graphique d'activité
 export function getDataForActivityChart() {
@@ -20,6 +20,11 @@ export function getDataForActivityChart() {
 
         // Appel API avec useFetch pour obtenir les données, le statut de chargement et les erreurs
         ({ data: dynamicData, loading, error } = useFetch(`http://localhost:3000/user/${id}/activity`));
+
+        if (error) {
+            // Gère l'état où l'API ne fonctionne pas
+            return { error: "L'API ne fonctionne pas", loading: false };
+        }
     } else {
 
         // Recherche de l'activité utilisateur dans les données locales si l'API n'est pas utilisée

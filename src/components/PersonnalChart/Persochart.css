@@ -10,7 +10,7 @@
     .statPerso {
       flex-wrap: nowrap;
       flex-direction: column;
-      margin-top: 165px;
+      margin-top: 115px;
       height: 89%;
       justify-content: flex-start;
     }

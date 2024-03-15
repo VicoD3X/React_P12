@@ -4,7 +4,7 @@ import useFetch from '../components/Hook'; // Assurez-vous que le chemin d'accè
 import dataPerso from '../../public/dataPerso.json'; // Assurez-vous que le chemin d'accès est correct
 
 // Constante pour choisir entre l'utilisation des données via API ou des données locales
-const USEAPI = true;
+const USEAPI = false;
 
 // Fonction pour obtenir les données pour un graphique personnalisé
 export function getDataForPersoChart() {
@@ -20,6 +20,10 @@ export function getDataForPersoChart() {
 
         // Utilisation de useFetch pour récupérer les données de l'utilisateur spécifique
         ({ data: dynamicData, loading, error } = useFetch(`http://localhost:3000/user/${id}`));
+        if (error) {
+            // Gère l'état où l'API ne fonctionne pas
+            return { error: "L'API ne fonctionne pas", loading: false };
+        }
 
         // Une fois le chargement terminé, mise à jour des données dynamiques pour correspondre à la structure attendue
         if (!loading) {

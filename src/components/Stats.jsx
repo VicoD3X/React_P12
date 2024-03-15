@@ -6,11 +6,7 @@ import Scorechart from '../components/ScoreChart/Scorechart'
 
 // Le composant fonctionnel Stats est utilisé pour afficher les statistiques de l'utilisateur.
 const Stats = () => {
-
-
-
-
-
+  
   return (
     <>
       {/* Composant pour afficher le graphique d'activité de l'utilisateur. */}

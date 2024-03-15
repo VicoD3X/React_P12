@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import dataScore from '../../public/dataPerso.json';
 
 // Détermine si on utilise des données d'API ou locales
-const USEAPI = true;
+const USEAPI = false;
 
 
 // Fonction pour obtenir les données pour le graphique de score

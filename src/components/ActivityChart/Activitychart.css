@@ -16,7 +16,6 @@
       margin-left: 20px;
       padding: 10px;
       padding-right: 50px;
-      margin-top: 50px;
     }
   }
 
@@ -70,4 +69,8 @@
 .custom-tooltip .label {
     color: #fff;
     margin: 0;
+}
+
+.recharts-cartesian-axis-tick-line, .recharts-cartesian-axis-line {
+    stroke: #000000 !important;
 }

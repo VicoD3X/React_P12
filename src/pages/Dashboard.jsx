@@ -18,7 +18,7 @@ const { loading, error, dynamicData } = getDataForPersoChart();
 if (loading) return <p>Chargement...</p>;
 
 // Affiche un message en cas d'erreur de récupération des données
-if (error) return <p>Erreur</p>;
+if (error) return <p>Une erreur s'est produite lors de la connexion à la base de données. Veuillez réessayer ultérieurement.</p>;
 
 // Extrait le prénom de l'utilisateur des données dynamiques pour une utilisation ultérieure
 let firstName = dynamicData.userInfos.firstName;

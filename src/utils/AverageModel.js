@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import dataAverage from '../../public/dataAverage.json';
 
 // Constante pour activer ou non l'utilisation de l'API pour récupérer les données
-const USEAPI = true;
+const USEAPI = false;
 
 // Fonction pour obtenir les données pour le graphique de moyenne des sessions
 export function getDataForAverageChart() {
