@@ -5,7 +5,7 @@ import dataActivity from '../../public/dataActivity.json';
 
 
 // Constante pour déterminer si l'API doit être utilisée ou non
-const USEAPI = false;
+const USEAPI = true;
 
 // Fonction pour récupérer les données destinées au graphique d'activité
 export function getDataForActivityChart() {

@@ -4,7 +4,7 @@ import useFetch from '../components/Hook'; // Assurez-vous que le chemin d'accè
 import dataPerso from '../../public/dataPerso.json'; // Assurez-vous que le chemin d'accès est correct
 
 // Constante pour choisir entre l'utilisation des données via API ou des données locales
-const USEAPI = false;
+const USEAPI = true;
 
 // Fonction pour obtenir les données pour un graphique personnalisé
 export function getDataForPersoChart() {

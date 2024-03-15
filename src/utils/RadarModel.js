@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import dataRadar from '../../public/dataRadar.json';
 
 // Définir si on souhaite utiliser l'API ou les données locales
-const USEAPI = false;
+const USEAPI = true;
 
 // Fonction pour récupérer les données pour le graphique radar
 export function getDataForRadarChart() {
